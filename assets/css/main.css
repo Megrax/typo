@@ -90,7 +90,7 @@ code {
   font-feature-settings: "liga", "dlig";
   font-variant-ligatures: contextual;
   font-family: "Monaspace";
-  font-size: .9em;
+  font-size: var(--code-font-size);
   line-height: 0;
 }
 

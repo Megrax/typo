@@ -24,7 +24,7 @@
     --code-margin-bottom: 2rem;
 
     --h1-font-size: 2em;
-    --h2-font-size: 1.8em;
+    --h2-font-size: 1.5em;
     --hx-font-size: 1.3em;
     --p-font-size: 1em;
     --p-line-height: 1.5em;
@@ -41,6 +41,7 @@
     /* Code */
     --code-padding: 1.5rem;
     --code-border-radius: 10px;
+    --code-font-size: .9em;
 
     /* Social section */
     --social-icons-bottom-margin: 3rem;
@@ -67,6 +68,10 @@
 
 @media screen and (max-width: 640px) {
     :root {
+        --h1-font-size: 1.6em;
+        --h2-font-size: 1.3em;
+        --p-font-size: 16px;
+        --code-font-size: .8em;
         --header-top-gap: 1rem;
         --social-icons-bottom-margin: 0rem;
         --caption-padding: calc(2 * var(--main-padding));
