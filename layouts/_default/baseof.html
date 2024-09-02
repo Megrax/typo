@@ -28,6 +28,33 @@
       {{ partial "footer.html" . }}
     </footer>
 
+    <!-- image-group shortcode script -->
+    <script>
+      const figures = [...document.querySelectorAll(".image-group-container figure")];
+      const images = [...document.querySelectorAll(".image-group-container img")];
+      const proms = images.map((img) => new Promise((resolve) =>
+          img.onload = () => resolve([img.naturalWidth, img.naturalHeight])
+      ))
+
+      // Process images' widths and heights _after_ loaded:
+      Promise.all(proms).then((data) => {
+        const GAP_SIZE = 16;
+        const MAIN_WIDTH = document.querySelector('main.main').clientWidth;
+        const GAP_PERCENT = GAP_SIZE / MAIN_WIDTH * 100;
+        const rawRatioList = [];
+        const finalRatioList = [];
+        data.forEach(([w, h]) => {
+            rawRatioList.push(w / h);
+        });
+        const ratioSum = rawRatioList[0] + rawRatioList[1];
+        rawRatioList.forEach((rawRatio) => {
+            finalRatioList.push(Number(rawRatio / ratioSum * 100 - GAP_PERCENT / 2).toFixed(2) + '%');
+        });
+        figures[0].style.width = finalRatioList[0];
+        figures[1].style.width = finalRatioList[1];
+      })
+    </script>
+
   </body>
 
   <script>
@@ -61,34 +88,6 @@
 
   setTheme();
 
-</script>
-
-<!-- image-group shortcode script -->
-<script>
-  const GAP_SIZE = 16;
-  const MAIN_WIDTH = document.querySelector('main.main').clientWidth;
-    const GAP_PERCENT = GAP_SIZE / MAIN_WIDTH * 100;
-
-  const figures = [...document.querySelectorAll(".image-group-container figure")];
-  const images = [...document.querySelectorAll(".image-group-container img")];
-  const proms = images.map((img) => new Promise((resolve) =>
-      img.onload = () => resolve([img.naturalWidth, img.naturalHeight])
-  ))
-
-  // Process images' widths and heights _after_ loaded:
-  Promise.all(proms).then((data) => {
-      const rawRatioList = [];
-      const finalRatioList = [];
-      data.forEach(([w, h]) => {
-          rawRatioList.push(w / h);
-      });
-      const ratioSum = rawRatioList[0] + rawRatioList[1];
-      rawRatioList.forEach((rawRatio) => {
-          finalRatioList.push(Number(rawRatio / ratioSum * 100 - GAP_PERCENT / 2).toFixed(2) + '%');
-      });
-      figures[0].style.width = finalRatioList[0];
-      figures[1].style.width = finalRatioList[1];
-  })
 </script>
 
 </html>
