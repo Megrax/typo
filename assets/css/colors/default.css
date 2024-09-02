@@ -4,6 +4,16 @@
     --background: rgb(255, 255, 255);
     --code-background: rgb(249, 249, 249);
     --code-border: rgb(229, 229, 229);
+    --callout-yellow-border: #fed4a4;
+    --callout-yellow-background: #fff5eb;
+    --callout-green-border: #b7edb1;
+    --callout-green-background: #f0fbef;
+    --callout-blue-border: #bacefd;
+    --callout-blue-background: #f0f4ff;
+    --callout-purple-border: #cdb2fa;
+    --callout-purple-background: #f6f1fe;
+    --callout-orange-border: #fed4a4;
+    --callout-orange-background: #fed4a4;
 }
 
 .dark {
@@ -12,4 +22,14 @@
     --background: rgb(20, 20, 20);
     --code-background: rgb(30, 30, 30);
     --code-border: rgb(50, 50, 50);
+    --callout-yellow-border: #845117;
+    --callout-yellow-background: rgba(242, 150, 44, 0.17);
+    --callout-green-border: #296b22;
+    --callout-green-background: rgba(84, 194, 72, 0.17);
+    --callout-blue-border: #203e78;
+    --callout-blue-background: rgba(76, 136, 255, 0.21);
+    --callout-purple-border: #4d2691;
+    --callout-purple-background: rgba(151, 98, 245, 0.24);
+    --callout-orange-border: #845117;
+    --callout-orange-background: rgba(242, 150, 44, 0.17);
 }
